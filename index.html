@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e91e63">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mercy Nyaga | Errands & Shopping Help</title>
+  <!-- Font Awesome 6 CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf5;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      bottom: -100px;
+      left: 0;
+      width: 100%;
+      height: 150%;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'),
+                        url('https://cdn-icons-png.flaticon.com/512/1828/1828919.png'),
+                        url('https://cdn-icons-png.flaticon.com/512/1042/1042334.png'),
+                        url('https://cdn-icons-png.flaticon.com/512/1170/1170678.png');
+      background-repeat: no-repeat;
+      background-position: left 10%, center 30%, right 10%, center 70%;
+      background-size: 80px;
+      opacity: 0.05;
+      z-index: 0;
+      animation: floatUp 60s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+
+    header {
+      background: #ffa726;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+
+    .spacer {
+      margin-top: 120px;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      color: #222;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card i {
+  font-size: 30px;
+  color: #6a1b9a;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.feature-list {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #555;
+}
+
+.feature-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #8e24aa;
+  font-weight: bold;
+}
+
+
+    .contact {
+      text-align: center;
+      margin: 3rem 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .contact h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+footer {
+  background: #f3f3f3;
+  padding: 2rem 1rem;
+  color: #444;
+  text-align: center;
+}
+
+.footer-wrapper {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #444;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.partners-logos img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.floating-icons {
+  position: fixed;
+  bottom: -100px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.float-icon {
+  position: absolute;
+  bottom: -100px;
+  width: 50px;
+  opacity: 0.05;
+  animation: floatUp 60s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.07;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0.05;
+  }
+}
+
+/* Desktop view: separate explore/partners horizontally */
+@media (min-width: 768px) {
+  .footer-columns {
+    flex-direction: row;
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  .footer-section {
+    text-align: left;
+  }
+}
+
+
+    .partners-logos img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+    }
+
+    .floating-cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffa726;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      font-size: 1.5rem;
+      z-index: 1000;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      .hero h2 {
+        font-size: 1.4rem;
+      }
+
+      .partners-logos {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 600px) {
+  .hero {
+    margin-top: 80px;
+  }
+}
+.hero-floating-icons {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-icon {
+  position: absolute;
+  width: 40px;
+  opacity: 0.06;
+  animation: floatUpHero 40s linear infinite;
+}
+
+@keyframes floatUpHero {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.06;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-120px) rotate(360deg);
+    opacity: 0.05;
+  }
+}
+.hero-images {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 1rem auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+.hero-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+  </style>
+</head>
+<body>
+
+
+<!-- Floating Background Elements -->
+<div class="floating-icons">
+  <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="calculator" class="float-icon" style="left: 5%; animation-delay: 0s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1042/1042334.png" alt="notebook" class="float-icon" style="left: 25%; animation-delay: 5s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="money" class="float-icon" style="left: 60%; animation-delay: 3s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="cart" class="float-icon" style="left: 80%; animation-delay: 1s;">
+</div>
+
+
+<a href="https://wa.me/254740180321" target="_blank">
+  <div class="floating-cart">
+    <i class="fas fa-shopping-cart"></i>
+  </div>
+</a>
+
+
+  <header >
+    <h1>Need Help with Errands or Grocery Shopping?</h1>
+    <p>I’m Available Today – Nairobi CBD & Kiambu Town</p>
+  </header>
+
+  <div class="spacer"></div>
+
+  <section class="hero">
+  <div class="hero-images">
+  <img src="Mercy.jpg" alt="Mercy 1" class="hero-image active">
+  <img src="Mercy.jpg" alt="Mercy 2" class="hero-image">
+</div>
+
+    <h2>Hi, I’m Mercy Nyaga 👋</h2>
+    <p>If you’re too busy or tired to run errands or shop, I can help!</p>
+    <div class="hero-floating-icons">
+  <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="calculator" class="hero-icon" style="left: 10%; animation-delay: 0s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1042/1042334.png" alt="notebook" class="hero-icon" style="left: 35%; animation-delay: 3s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="money" class="hero-icon" style="left: 60%; animation-delay: 6s;">
+  <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="cart" class="hero-icon" style="left: 80%; animation-delay: 2s;">
+</div>
+
+    <a class="whatsapp-btn" href="https://wa.me/254740180321" target="_blank">
+      <i class="fab fa-whatsapp"></i> WhatsApp Me
+    </a>
+  </section>
+
+<section class="features">
+  <div class="feature-card">
+    <i class="fas fa-file-invoice-dollar"></i>
+    <h3>Bill Payments / Queueing Services</h3>
+    <ul class="feature-list">
+      <li>Paying electricity, water, NHIF, or school fees</li>
+      <li>Standing in line at Huduma Center or government offices</li>
+    </ul>
+  </div>
+
+  <div class="feature-card">
+    <i class="fas fa-gift"></i>
+    <h3>Gift Shopping & Delivery</h3>
+    <ul class="feature-list">
+      <li>Buy & deliver birthday gifts, baby showers, or surprise packages</li>
+    </ul>
+  </div>
+
+  <div class="feature-card">
+    <i class="fas fa-box"></i>
+    <h3>Parcel Pick-Up & Drop-Off</h3>
+    <ul class="feature-list">
+      <li>From shops, salons, clients, or offices (especially for small businesses)</li>
+    </ul>
+  </div>
+
+  <div class="feature-card">
+    <i class="fas fa-utensils"></i>
+    <h3>Food & Restaurant Pick-Up</h3>
+    <ul class="feature-list">
+      <li>Pick up lunch, snacks, or online food orders for people at work or school</li>
+    </ul>
+  </div>
+
+  <div class="feature-card">
+    <i class="fas fa-pen"></i>
+    <h3>Stationery or School Supply Runs</h3>
+    <ul class="feature-list">
+      <li>Buy & deliver books, pens, uniforms, school shopping</li>
+    </ul>
+  </div>
+
+  <div class="feature-card">
+    <i class="fas fa-prescription-bottle-alt"></i>
+    <h3>Pharmacy/Clinic Runs</h3>
+    <ul class="feature-list">
+      <li>Pick up meds, deliver prescriptions (this one builds a lot of trust)</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+<footer>
+  <div class="footer-wrapper">
+    <div class="footer-columns">
+      <div class="footer-section">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="faqs.php">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Partners</h4>
+        <ul>
+          <li>Kelvin Graphics</li>
+          <li>KG Investments</li>
+          <li>Kiknetworks</li>
+          <li>KYC Deals</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="partners-logos">
+      <img src="https://kelvinkikwa.ct.ws/images/1750498720_WhatsApp%20Image%202025-06-07%20at%2013.49.53.jpeg" alt="Kelvin Graphics">
+      <img src="KG investments.png" alt="Kg investments">
+      <img src="https://kiknetworks.ct.ws/Kiknetworks.png" alt="Kiknetworks">
+      <img src="https://kycdeals.ct.ws/Verified.png" alt="KYC Deals">
+      <img src="https://kikwa-ebooks.infy.uk/ebook.jpg" alt="Kikwa Ebooks">
+    </div>
+  </div>
+</footer>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(reg) {
+        console.log('Service worker registered:', reg);
+      })
+      .catch(function(error) {
+        console.log('Registration failed:', error);
+      });
+  }
+</script>
+
+
+  <script>
+  const images = document.querySelectorAll('.hero-image');
+  let currentIndex = 0;
+
+  setInterval(() => {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+  }, 2000);
+  </script>
+</body>
+</html>
