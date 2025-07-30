@@ -1,0 +1,20 @@
+{
+  "name": "Mercy Errands",
+  "short_name": "MercyApp",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e91e63",
+  "icons": [
+    {
+      "src": "KG investments.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "KG investments.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
