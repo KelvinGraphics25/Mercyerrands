@@ -1,7 +1,7 @@
 {
   "name": "Mercy Errands",
   "short_name": "MercyApp",
-  "start_url": "/",
+  "start_url": "/Mercyerrands/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#e91e63",
